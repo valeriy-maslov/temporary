@@ -42,7 +42,6 @@ public class RecipeListAdapter extends BaseAdapter {
     private class ViewHolder {
         ImageView imageView;
         TextView txtTitle;
-
     }
 
     @Override
@@ -53,19 +52,16 @@ public class RecipeListAdapter extends BaseAdapter {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        row = inflater.inflate(layout, null);
-
-
         Recipe recipe = recipeList.get(position);
-        System.out.println(recipe.getTitle());
-        if(recipe.getId() == 3){
-            row = inflater.inflate(R.layout.list_item,parent,false);
-        } else{
-            row = inflater.inflate(R.layout.list_item_favorite,parent,false);
+
+        if (recipe.getFavorite() == 0) {
+            row = inflater.inflate(R.layout.list_item, parent, false);
+        } else {
+            row = inflater.inflate(R.layout.list_item_favorite, parent, false);
         }
         holder.txtTitle = row.findViewById(R.id.text_list_item);
 
-        //row.setTag(holder);
+        row.setTag(holder);
 
         holder.txtTitle.setText(recipe.getTitle());
         holder.imageView = row.findViewById(R.id.image_list_item);

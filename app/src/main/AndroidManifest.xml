@@ -21,10 +21,10 @@
             android:configChanges="keyboardHidden|orientation|screenSize">
 
         </activity>
-        <!--<activity android:name=".Description"
+        <activity android:name=".Description"
             android:configChanges="keyboardHidden|orientation|screenSize">
 
-        </activity>-->
+        </activity>
     </application>
 
 </manifest>
